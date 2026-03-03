@@ -1928,37 +1928,37 @@ describe('zod', () => {
           return z.union([
             z.object({
               a: z.string(),
-              b: z.never(),
-              c: z.never(),
-              d: z.never(),
-              e: z.never()
+              b: z.undefined(),
+              c: z.undefined(),
+              d: z.undefined(),
+              e: z.undefined()
             }),
             z.object({
-              a: z.never(),
+              a: z.undefined(),
               b: z.string(),
-              c: z.never(),
-              d: z.never(),
-              e: z.never()
+              c: z.undefined(),
+              d: z.undefined(),
+              e: z.undefined()
             }),
             z.object({
-              a: z.never(),
-              b: z.never(),
+              a: z.undefined(),
+              b: z.undefined(),
               c: z.boolean(),
-              d: z.never(),
-              e: z.never()
+              d: z.undefined(),
+              e: z.undefined()
             }),
             z.object({
-              a: z.never(),
-              b: z.never(),
-              c: z.never(),
+              a: z.undefined(),
+              b: z.undefined(),
+              c: z.undefined(),
               d: z.number(),
-              e: z.never()
+              e: z.undefined()
             }),
             z.object({
-              a: z.never(),
-              b: z.never(),
-              c: z.never(),
-              d: z.never(),
+              a: z.undefined(),
+              b: z.undefined(),
+              c: z.undefined(),
+              d: z.undefined(),
               e: z.number()
             })
           ])
@@ -1986,26 +1986,26 @@ describe('zod', () => {
           return z.union([
             z.object({
               a: z.array(z.string().nullable()),
-              b: z.never(),
-              c: z.never(),
-              d: z.never()
+              b: z.undefined(),
+              c: z.undefined(),
+              d: z.undefined()
             }),
             z.object({
-              a: z.never(),
+              a: z.undefined(),
               b: z.array(z.string()),
-              c: z.never(),
-              d: z.never()
+              c: z.undefined(),
+              d: z.undefined()
             }),
             z.object({
-              a: z.never(),
-              b: z.never(),
+              a: z.undefined(),
+              b: z.undefined(),
               c: z.array(z.array(z.string().nullable()).nullish()),
-              d: z.never()
+              d: z.undefined()
             }),
             z.object({
-              a: z.never(),
-              b: z.never(),
-              c: z.never(),
+              a: z.undefined(),
+              b: z.undefined(),
+              c: z.undefined(),
               d: z.array(z.array(z.string().nullable()))
             })
           ])
@@ -2036,37 +2036,37 @@ describe('zod', () => {
 
       const result = await plugin(schema, [], { schema: 'zod', scalars }, {});
       expect(removedInitialEmitValue(result.content)).toMatchInlineSnapshot(`
-      "
-      export function ArrayInputSchema(): z.ZodUnion<z.ZodUnionOptions> {
-        return z.union([
-          z.object({
-            a: z.array(z.number().nullable()),
-            b: z.never(),
-            c: z.never(),
-            d: z.never()
-          }),
-          z.object({
-            a: z.never(),
-            b: z.array(z.string()),
-            c: z.never(),
-            d: z.never()
-          }),
-          z.object({
-            a: z.never(),
-            b: z.never(),
-            c: z.array(z.array(z.string().nullable()).nullish()),
-            d: z.never()
-          }),
-          z.object({
-            a: z.never(),
-            b: z.never(),
-            c: z.never(),
-            d: z.array(z.array(z.number().nullable()))
-          })
-        ])
-      }
-      "
-    `)
+        "
+        export function ArrayInputSchema(): z.ZodUnion<z.ZodUnionOptions> {
+          return z.union([
+            z.object({
+              a: z.array(z.number().nullable()),
+              b: z.undefined(),
+              c: z.undefined(),
+              d: z.undefined()
+            }),
+            z.object({
+              a: z.undefined(),
+              b: z.array(z.string()),
+              c: z.undefined(),
+              d: z.undefined()
+            }),
+            z.object({
+              a: z.undefined(),
+              b: z.undefined(),
+              c: z.array(z.array(z.string().nullable()).nullish()),
+              d: z.undefined()
+            }),
+            z.object({
+              a: z.undefined(),
+              b: z.undefined(),
+              c: z.undefined(),
+              d: z.array(z.array(z.number().nullable()))
+            })
+          ])
+        }
+        "
+      `)
     })
 
     it('ref input object', async () => {
@@ -2102,10 +2102,10 @@ describe('zod', () => {
           return z.union([
             z.object({
               b: z.lazy(() => BInputSchema()),
-              c: z.never()
+              c: z.undefined()
             }),
             z.object({
-              b: z.never(),
+              b: z.undefined(),
               c: z.lazy(() => CInputSchema())
             })
           ])
@@ -2115,10 +2115,10 @@ describe('zod', () => {
           return z.union([
             z.object({
               c: z.lazy(() => CInputSchema()),
-              d: z.never()
+              d: z.undefined()
             }),
             z.object({
-              c: z.never(),
+              c: z.undefined(),
               d: z.lazy(() => DInputSchema())
             })
           ])
@@ -2128,10 +2128,10 @@ describe('zod', () => {
           return z.union([
             z.object({
               d: z.lazy(() => DInputSchema()),
-              e: z.never()
+              e: z.undefined()
             }),
             z.object({
-              d: z.never(),
+              d: z.undefined(),
               e: z.lazy(() => EInputSchema())
             })
           ])
@@ -2141,10 +2141,10 @@ describe('zod', () => {
           return z.union([
             z.object({
               e: z.lazy(() => EInputSchema()),
-              a: z.never()
+              a: z.undefined()
             }),
             z.object({
-              e: z.never(),
+              e: z.undefined(),
               a: z.lazy(() => AInputSchema())
             })
           ])
@@ -2154,10 +2154,10 @@ describe('zod', () => {
           return z.union([
             z.object({
               a: z.lazy(() => AInputSchema()),
-              b: z.never()
+              b: z.undefined()
             }),
             z.object({
-              a: z.never(),
+              a: z.undefined(),
               b: z.lazy(() => BInputSchema())
             })
           ])
@@ -2183,10 +2183,10 @@ describe('zod', () => {
           return z.union([
             z.object({
               child: z.lazy(() => NestedInputSchema()),
-              childrens: z.never()
+              childrens: z.undefined()
             }),
             z.object({
-              child: z.never(),
+              child: z.undefined(),
               childrens: z.array(z.lazy(() => NestedInputSchema().nullable()))
             })
           ])
@@ -2225,10 +2225,10 @@ describe('zod', () => {
           return z.union([
             z.object({
               pageType: PageTypeSchema,
-              authMethod: z.never()
+              authMethod: z.undefined()
             }),
             z.object({
-              pageType: z.never(),
+              pageType: z.undefined(),
               authMethod: AuthMethodSchema
             })
           ])
@@ -2269,17 +2269,17 @@ describe('zod', () => {
           return z.union([
             z.object({
               phrase: z.string(),
-              times: z.never(),
-              word: z.never()
+              times: z.undefined(),
+              word: z.undefined()
             }),
             z.object({
-              phrase: z.never(),
+              phrase: z.undefined(),
               times: z.number(),
-              word: z.never()
+              word: z.undefined()
             }),
             z.object({
-              phrase: z.never(),
-              times: z.never(),
+              phrase: z.undefined(),
+              times: z.undefined(),
               word: definedNonNullAnySchema
             })
           ])
@@ -2318,37 +2318,37 @@ describe('zod', () => {
           return z.union([
             z.object({
               a: z.string().min(1),
-              b: z.never(),
-              c: z.never(),
-              d: z.never(),
-              e: z.never()
+              b: z.undefined(),
+              c: z.undefined(),
+              d: z.undefined(),
+              e: z.undefined()
             }),
             z.object({
-              a: z.never(),
+              a: z.undefined(),
               b: z.string().min(1),
-              c: z.never(),
-              d: z.never(),
-              e: z.never()
+              c: z.undefined(),
+              d: z.undefined(),
+              e: z.undefined()
             }),
             z.object({
-              a: z.never(),
-              b: z.never(),
+              a: z.undefined(),
+              b: z.undefined(),
               c: z.boolean(),
-              d: z.never(),
-              e: z.never()
+              d: z.undefined(),
+              e: z.undefined()
             }),
             z.object({
-              a: z.never(),
-              b: z.never(),
-              c: z.never(),
+              a: z.undefined(),
+              b: z.undefined(),
+              c: z.undefined(),
               d: z.number(),
-              e: z.never()
+              e: z.undefined()
             }),
             z.object({
-              a: z.never(),
-              b: z.never(),
-              c: z.never(),
-              d: z.never(),
+              a: z.undefined(),
+              b: z.undefined(),
+              c: z.undefined(),
+              d: z.undefined(),
               e: z.number()
             })
           ])
@@ -2387,37 +2387,37 @@ describe('zod', () => {
           return z.union([
             z.object({
               a: z.string().min(1),
-              b: z.never(),
-              c: z.never(),
-              d: z.never(),
-              e: z.never()
+              b: z.undefined(),
+              c: z.undefined(),
+              d: z.undefined(),
+              e: z.undefined()
             }),
             z.object({
-              a: z.never(),
+              a: z.undefined(),
               b: z.string().min(1),
-              c: z.never(),
-              d: z.never(),
-              e: z.never()
+              c: z.undefined(),
+              d: z.undefined(),
+              e: z.undefined()
             }),
             z.object({
-              a: z.never(),
-              b: z.never(),
+              a: z.undefined(),
+              b: z.undefined(),
               c: z.boolean(),
-              d: z.never(),
-              e: z.never()
+              d: z.undefined(),
+              e: z.undefined()
             }),
             z.object({
-              a: z.never(),
-              b: z.never(),
-              c: z.never(),
+              a: z.undefined(),
+              b: z.undefined(),
+              c: z.undefined(),
               d: z.number(),
-              e: z.never()
+              e: z.undefined()
             }),
             z.object({
-              a: z.never(),
-              b: z.never(),
-              c: z.never(),
-              d: z.never(),
+              a: z.undefined(),
+              b: z.undefined(),
+              c: z.undefined(),
+              d: z.undefined(),
               e: z.number()
             })
           ])
@@ -2461,10 +2461,10 @@ describe('zod', () => {
           return z.union([
             z.object({
               fieldOne: z.lazy(() => InputNestedOneSchema()),
-              fieldTwo: z.never()
+              fieldTwo: z.undefined()
             }),
             z.object({
-              fieldOne: z.never(),
+              fieldOne: z.undefined(),
               fieldTwo: z.lazy(() => InputNestedTwoSchema())
             })
           ])
@@ -2515,17 +2515,17 @@ describe('zod', () => {
           return z.union([
             z.object({
               date: z.date(),
-              email: z.never(),
-              str: z.never()
+              email: z.undefined(),
+              str: z.undefined()
             }),
             z.object({
-              date: z.never(),
+              date: z.undefined(),
               email: z.email(),
-              str: z.never()
+              str: z.undefined()
             }),
             z.object({
-              date: z.never(),
-              email: z.never(),
+              date: z.undefined(),
+              email: z.undefined(),
               str: z.string()
             })
           ])
@@ -2564,17 +2564,17 @@ describe('zod', () => {
           return z.union([
             z.object({
               date: z.string(),
-              email: z.never(),
-              str: z.never()
+              email: z.undefined(),
+              str: z.undefined()
             }),
             z.object({
-              date: z.never(),
+              date: z.undefined(),
               email: z.email(),
-              str: z.never()
+              str: z.undefined()
             }),
             z.object({
-              date: z.never(),
-              email: z.never(),
+              date: z.undefined(),
+              email: z.undefined(),
               str: z.string()
             })
           ])
@@ -2614,10 +2614,10 @@ describe('zod', () => {
           return z.union([
             z.object({
               name: z.string().regex(/^Sir/),
-              age: z.never()
+              age: z.undefined()
             }),
             z.object({
-              name: z.never(),
+              name: z.undefined(),
               age: z.number().min(0).max(100)
             })
           ])
@@ -2656,10 +2656,10 @@ describe('zod', () => {
           return z.union([
             z.object({
               profile: z.array(z.string().nullable()).min(1, "Please input more than 1").max(5000, "Please input less than 5000"),
-              prefs: z.never()
+              prefs: z.undefined()
             }),
             z.object({
-              profile: z.never(),
+              profile: z.undefined(),
               prefs: z.array(z.string().nullable()).min(1, "Please input more than 1").max(2000, "Please input less than 2000")
             })
           ])
@@ -2692,10 +2692,10 @@ describe('zod', () => {
         export const SaySchema = z.union([
             z.object({
               phrase: z.string(),
-              word: z.never()
+              word: z.undefined()
             }),
             z.object({
-              phrase: z.never(),
+              phrase: z.undefined(),
               word: z.string()
             })
         ]);

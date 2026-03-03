@@ -323,7 +323,7 @@ function generateFieldUnionZodSchema(config: ValidationSchemaPluginConfig, visit
       const isSameField = field.name === nestedObjectField.name;
 
       if (!isSameField) {
-        return indent(`${nestedObjectField.name.value}: z.never()`, indentCount + 1);
+        return indent(`${nestedObjectField.name.value}: z.undefined()`, indentCount + 1);
       }
 
       if (isListType(nestedObjectField.type)) {
